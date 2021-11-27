@@ -6,7 +6,7 @@ using namespace std;
 
 //Function Prototypes
 int getValidInt(string);
-short getValidShort(string);
+short getValidShort(string); 
 double getValidDouble(string);
 char getValidChar(string);
 bool getValidBool(string);
