@@ -1,3 +1,11 @@
+//Unit 5 Assingment- Kareem Mahmoud 
+// COSC 1437 - Dr_T
+//
+
+
+
+
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -39,8 +47,8 @@ while (ordering == 'y')
 {
 ordering = 'n';
 vector<MenuItem> wholeMenu;
-populateMenu(wholeMenu); //put some default values in the menu
-showMenu(wholeMenu); //print the current data of the menu on screen
+populateMenu(wholeMenu); // default values in the menu
+showMenu(wholeMenu); //print current data of the menu on screen
 acceptOrder(wholeMenu);
 cout << "\033[2J\033[1;1H";
 ordering = getValidChar("Would you like to order?: (y/n)");
@@ -52,8 +60,8 @@ return 0;
 
 void populateMenu(vector<MenuItem> &entireMenu)
 {
-entireMenu.push_back(MenuItem("Green Tea", 4.00, 'A', 'a'));
-entireMenu.push_back(MenuItem("Burrito", 5.00, 'B', 'b'));
+entireMenu.push_back(MenuItem("Sushi", 4.00, 'A', 'a'));
+entireMenu.push_back(MenuItem("Pizza", 5.00, 'B', 'b'));
 entireMenu.push_back(MenuItem("Item 3", 6.00, 'C', 'c'));
 entireMenu.push_back(MenuItem("Item 4", 7.00, 'D', 'd'));
 entireMenu.push_back(MenuItem("Item 5", 8.00, 'E', 'e'));
@@ -64,7 +72,7 @@ entireMenu.push_back(MenuItem("Item 7", 10.00, 'G', 'g'));
 void showMenu(vector<MenuItem> &m)
 {
 cout << fixed << setprecision(2);
-cout << "DrT's Effcient Menu" << endl;
+cout << "Kareem's Effcient Menu" << endl;
 cout << "ADD \tNAME \t COST \tREMOVE\tCOUNT\tDESC"<<endl;
 for(int i = 0; i < m.size(); i++)
 {
@@ -77,7 +85,7 @@ cout << m[i].AddLetter << ")" << setw(10) << m[i].Name
 
 void acceptOrder(vector<MenuItem> &m)
 {
-char option = '\0';// the user-selected menu item
+char option = '\0';//  user selected menu item
 double subtotal = 0.0;
 double tip = 0.0;
 bool paymentCredit = false;
@@ -94,11 +102,11 @@ for(int i=0; i < m.size(); i++)
 if(option == m[i].AddLetter)
 {
 cout << "\nMenu Item " << m[i].AddLetter << " selected.";
-m[i].Count++; //increment the count by 1
+m[i].Count++; 
 cout << "\033[2J\033[1;1H"; //clear screen
 cout << "\n1 UP on " << m[i].Name << endl;
-subtotal += m[i].ItemCost; //increment the subtotal by the cost of the item
-showMenu(m); //show the updated menu
+subtotal += m[i].ItemCost;  
+showMenu(m); 
 cout << "\nSubtotal: $" << subtotal << endl;
 }
 else if(option == m[i].RemoveLetter)
@@ -106,14 +114,14 @@ else if(option == m[i].RemoveLetter)
 cout << "\nRemove Item " << m[i].RemoveLetter << " selected.";
 if(m[i].Count > 0) //subtract if and only if the count is > 0
 {
-m[i].Count--; //decrement the count by 1
+m[i].Count--; 
 cout << "\033[2J\033[1;1H"; //clear screen
 cout << "\n1 DOWN on " << m[i].Name << endl;
-subtotal -= m[i].ItemCost; //decrement the subtotal by the cost of the item
+subtotal -= m[i].ItemCost; 
 showMenu(m); //show the updated menu
 cout << "\nSubtotal: $" << subtotal << endl;
 }
-else //the the user why you blocked item removal
+else 
 {
   
 cout << "\nItem count must be > 0 to remove: " << m[i].Name << endl;
